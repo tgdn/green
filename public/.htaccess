@@ -1,0 +1,17 @@
+# prevents problems when having root index.php
+Options -MultiViews
+
+# activates url rewriting
+RewriteEngine on
+
+# prevents people from looking at folders 
+Options -Indexes
+
+# if not a dir
+RewriteCond %{REQUEST_FILENAME} !-d
+# if not a regular file
+RewriteCond %{REQUEST_FILENAME} !-f
+# if no symlink
+RewriteCond %{REQUEST_FILENAME} !-l
+
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
