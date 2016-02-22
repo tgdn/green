@@ -1,3 +1,4 @@
+<link href='https://fonts.googleapis.com/css?family=Pacifico&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,900,300' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="<?php echo Utils::static_file('css/bootstrap.min.css') ?>" media="all">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">

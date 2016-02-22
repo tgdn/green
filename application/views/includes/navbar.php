@@ -9,7 +9,7 @@
             }
         ?>
 
-        <div class="navbar-container" id="main-menu">
+        <div class="navbar-container navbar-center" id="main-menu">
             <ul class="nav navbar-nav">
                 <li <?php echo $class == 'home' ? 'class="active"' : '' ?>><a href="<?php echo URL ?>">Log In</a></li>
                 <li <?php echo $class == 'register' ? 'class="active"' : '' ?>><a href="<?php echo URL . 'register' ?>">Register</a></li>

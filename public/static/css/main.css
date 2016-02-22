@@ -26,6 +26,33 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: normal
 }
 
+.clear {
+    clear: both;
+    overflow: hidden;
+}
+
+.floatnone {
+    float: none !important;
+}
+
+.brand {
+    cursor: default;
+    color: #777 !important;
+    font-family: 'Pacifico', cursive;
+    text-decoration: none;
+    -webkit-transition: all 0.08s;
+    -moz-transition: all 0.08s;
+    -ms-transition: all 0.08s;
+    -o-transition: all 0.08s;
+    transition: all 0.08s;
+}
+
+a.brand:hover {
+    cursor: pointer;
+    color: #ff944d !important;
+    text-decoration: none;
+}
+
 /* helper classes */
 .center-block {
     float: none;
@@ -36,6 +63,13 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 30px;
 }
 
+/* home */
+p.home-brand {
+    font-size: 2.4em;
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+
 /* login */
 form#login-form,
 form#register-form {
@@ -44,7 +78,7 @@ form#register-form {
     padding-right: 25px;
     padding-left: 25px;
     background: #fff;
-    border: 1px solid #eee;
+    border: 1px solid #e4e4e4;
     border-radius: 3px;
     box-shadow: 0 0 6px -3px #ccc;
     position: relative;
@@ -81,7 +115,7 @@ form#register-form {
     form#login-form:before,
     form#register-form:before {
     	border-color: rgba(238, 238, 238, 0);
-    	border-bottom-color: #eee;
+    	border-bottom-color: #e4e4e4;
     	border-width: 14px;
     	margin-left: -14px;
     }
@@ -91,7 +125,7 @@ form#register-form {
 form#login-form .form-control,
 form#register-form .form-control {
     background-color: #f7f7f7;
-    border-color: #eee;
+    border-color: #e4e4e4;
 }
 
 form#login-form .form-control:focus,
@@ -110,10 +144,14 @@ form#register-form .form-control:focus {
 .navbar-default.opaque {
     background-color: #252729;
 }
-.navbar-default .navbar-brand {
-    padding-top: 17px;
-    height: 53px;
+
+.navbar-brand {
+    font-size: 1.6em;
+    padding: 9px 15px;
+    height: initial;
+    line-height: 20px;
 }
+
 @media all and (max-width: 768px) {
     .navbar-default .navbar-brand {
         padding-top: 13px;
@@ -192,7 +230,7 @@ form#register-form .form-control:focus {
     }
 }
 
-.navbar-main .navbar-container {
+.navbar-main .navbar-container.navbar-center {
     text-align: center;
 }
 .navbar-main .navbar-nav > li > a {
@@ -223,6 +261,36 @@ ul.list-container li input[type=text] {
 /* Bootstrap overrides */
 .form-control:focus {
     border-color: #ff944d;
+}
+
+/* list groups */
+.list-group-item {
+    border-color: #e4e4e4;
+}
+.list-group-item:first-child {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.list-group-item:last-child {
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+/* panels */
+.panel-default {
+    border-color: #e4e4e4;
+    border-radius: 3px;
+}
+
+.panel-default h5 {
+    font-weight: 500;
+    margin-top: 0;
+}
+
+.panel-default ul li.empty-list {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
 p.lead {

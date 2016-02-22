@@ -14,6 +14,8 @@ class Register extends Page {
     protected function get() {}
 
     protected function post() {
+        /* allows for future implementation of
+        multiple validations */
         $errors = false;
 
         $form = array(

@@ -5,13 +5,11 @@
 <div class="container">
     <div class="row">
         <div class="center-block col-sm-6 col-md-5 col-lg-4">
+            <p class="brand home-brand lead text-center">
+                Green
+            </p>
             <p class="lead text-left">
-                <br>
-                <em>
-                    Welcome to Green,
-                    <br>
-                    your household management service.
-                </em>
+                <em>Your household management service.</em>
             </p>
         </div>
     </div>

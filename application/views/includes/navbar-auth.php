@@ -1,5 +1,8 @@
 <nav class="navbar navbar-default navbar-main navbar-static-top">
-    <div class="container-fluid">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand brand" href="<?php echo Utils::url('dashboard') ?>">Green</a>
+        </div>
 
         <?php
             if (isset($this) && isset($this->context['nav'])) {
@@ -11,7 +14,7 @@
 
         <div class="navbar-container" id="main-menu">
             <ul class="nav navbar-nav">
-                <li <?php echo $class == 'dashboard' ? 'class="active"' : '' ?>><a href="<?php echo Utils::url('dashboard') ?>">Dashboard</a></li>
+                <!-- <li <?php /*echo $class == 'dashboard' ? 'class="active"' : ''*/ ?>><a href="<?php echo Utils::url('dashboard') ?>">Dashboard</a></li> -->
                 <li><a href="<?php echo Utils::url('logout') ?>">Log out</a></li>
             </ul>
         </div>
