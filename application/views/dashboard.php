@@ -37,7 +37,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-8 col-lg-6">
+            <div class="col-sm-8 col-md-8 col-lg-6">
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <h5>
@@ -50,6 +50,15 @@
                                     Create one
                                 </button>
                             </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-sm-offset-0 col-md-8 col-md-offset-4 col-lg-offset-0 col-lg-3">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <ul class="list-inline footer-list">
+                            <li>CS139 - University of Warwick</li>
                         </ul>
                     </div>
                 </div>

@@ -63,6 +63,12 @@ a.brand:hover {
     margin-bottom: 30px;
 }
 
+/* footer */
+ul.footer-list {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
 /* home */
 p.home-brand {
     font-size: 2.4em;
@@ -170,12 +176,31 @@ form#register-form .form-control:focus {
     }
 }
 
-.navbar-default .navbar-nav > li {
-    margin-left: 10px;
+
+/* apply a margin to navbar elements on normal displays */
+@media all and (min-width: 768px) {
+    .navbar-default .navbar-nav > li {
+        margin-left: 10px;
+    }
+
+    .navbar-default .navbar-nav > li:last-child {
+        margin-right: 10px;
+    }
 }
 
-.navbar-default .navbar-nav > li:last-child {
-    margin-right: 10px;
+@media all and (max-width: 768px) {
+    /* remove margin on side */
+    /* add margin between elements */
+    .navbar-default .navbar-nav > li {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+
+    /* remove from last element */
+    .navbar-default .navbar-nav > li:last-child {
+        margin-bottom: 0;
+    }
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -198,7 +223,7 @@ form#register-form .form-control:focus {
 @media all and (min-width: 768px) {
     .navbar-default .navbar-nav > li > a {
         padding-top: 10px;
-        padding-bottom: 5px;
+        padding-bottom: 10px;
         padding-left: 20px;
         padding-right: 20px;
     }
@@ -230,12 +255,32 @@ form#register-form .form-control:focus {
     }
 }
 
+/* center brand link and buttons */
+@media all and (max-width: 768px) {
+    .navbar-main .navbar-header,
+    .navbar-main .navbar-container {
+        margin-left: 15px;
+        margin-right: 15px;
+        text-align: center;
+    }
+
+    .navbar-main .navbar-header .navbar-brand {
+        float: none;
+    }
+}
+
+/* shift brand link to match content pagination */
+@media all and (min-width: 768px) {
+    .navbar-main .navbar-header {
+        margin-left: 15px;
+    }
+}
+
 .navbar-main .navbar-container.navbar-center {
     text-align: center;
 }
 .navbar-main .navbar-nav > li > a {
     color: #555;
-    border-bottom: 4px solid transparent;
     border-radius: 4px;
 }
 .navbar-main .navbar-nav > li > a:hover,

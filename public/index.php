@@ -70,6 +70,10 @@ function load_page($page_controller_class) {
     // try to load controller
     try {
         $page = new $page_controller_class();
+    } catch (Http403Exception $e) {
+        // manually thrown 403 exception
+        $err = $e->getMessage() ? $e->getMessage() : "You don't have access to this page.";
+        $page = new Http403($err);
     } catch (Exception $e) {
         // throw 500 if exception is thrown.
         // makes it easier for error handling

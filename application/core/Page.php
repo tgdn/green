@@ -126,7 +126,10 @@ class Page {
     /* these should be overriden */
     protected function update_instance() {}
     protected function get() {}
-    protected function post() {}
+    protected function post() {
+        /* by default call the get method */
+        $this->get();
+    }
     protected function before_action() {}
     protected function after_action() {}
 
