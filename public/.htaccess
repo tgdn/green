@@ -4,7 +4,7 @@ Options -MultiViews
 # activates url rewriting
 RewriteEngine on
 
-# prevents people from looking at folders 
+# prevents people from looking at folders
 Options -Indexes
 
 # if not a dir

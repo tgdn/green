@@ -24,7 +24,7 @@ spl_autoload_register(function ($classname) {
             return;
         }
     }
-    throw new Exception('Could not load ' . $classname . ' class.');
+    throw new Exception('Could not load &nbsp;<samp>' . $classname . '</samp>&nbsp; class.');
 });
 
 $database = new Database();

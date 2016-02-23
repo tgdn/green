@@ -23,6 +23,10 @@ class BaseUser {
         $db_query = UserModel::get_user($uid);
         UserModel::update_login_date($uid);
         $this->pk = $uid;
+        $this->full_name = $db_query['full_name'];
+        $this->email = $db_query['email'];
+        $this->created_at = $db_query['created_at'];
+        $this->last_login = $db_query['last_login'];
 
         // set instance variables here
     }

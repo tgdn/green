@@ -22,11 +22,12 @@ class Utils {
     }
 
     public static function url($url) {
-        return URL . $url;
+        //return URL . $url;
+        return URL . 'public/index?url=' . $url;
     }
 
     public static function escape($str) {
-        return htmlspecialchars(strip_tags($str));
+        return htmlspecialchars(strip_tags($str), ENT_QUOTES, 'utf-8');
     }
 
     public static function get_include($filename) {

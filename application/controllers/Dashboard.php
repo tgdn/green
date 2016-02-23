@@ -10,7 +10,7 @@ class Dashboard extends Page {
     }
 
     protected function get() {
-        
+
     }
 
 }

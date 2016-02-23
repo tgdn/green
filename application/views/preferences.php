@@ -8,21 +8,13 @@
     <div class="row">
         <div class="center-block col-sm-12">
             <?php $this->get_include('auth/user-sidebar') ?>
-            
+
             <div class="col-sm-8 col-md-8 col-lg-6">
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <h5>
-                            Your houses
+                            Preferences
                         </h5>
-                        <ul class="list-unstyled">
-                            <li class="empty-list">
-                                <p><em>No houses yet</em></p>
-                                <button class="btn btn-md btn-t-plain">
-                                    Create one
-                                </button>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -37,8 +29,6 @@
             </div>
             <div class="clear"></div>
         </div>
-        <!-- <div class="center-block col-sm-6 col-md-5 col-lg-4" id="public-app-main"> -->
-        <!-- </div> -->
     </div>
 </div>
 
