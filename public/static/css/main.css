@@ -58,6 +58,18 @@ a.brand:hover {
     float: none;
 }
 
+.text-dark {
+    color: #333 !important;
+}
+
+.text-lg {
+    font-size: 1.16em !important;
+}
+
+p.help-block.text-lg {
+    margin-bottom: 25px !important;
+}
+
 .heading h1 {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -327,9 +339,29 @@ ul.list-container li input[type=text] {
     border-radius: 3px;
 }
 
+.panel-default h1,
+.panel-default h2,
+.panel-default h3,
+.panel-default h3,
+.panel-default h4,
 .panel-default h5 {
     font-weight: 500;
+}
+
+.panel-default h1,
+.panel-default h2,
+.panel-default h3 {
+    margin-top: 20px;
+    margin-bottom: 35px;
+}
+
+.panel-default h5 {
     margin-top: 0;
+}
+
+.panel-default .subtitle {
+    margin-top: 35px;
+    margin-bottom: 10px;
 }
 
 .panel-default ul li.empty-list {
@@ -474,13 +506,11 @@ p.lead {
 
 .btn-t-contrast {
   background: transparent;
-  border: 1px solid;
-  border-color: #565a5c;
+  border: 1px solid #565a5c;
   border-bottom-color: #383b3c;
   background-color: #565a5c;
   color: #fff !important;
   /* Firefox requires the important attribute */
-  border-style: none;
   text-shadow: none; }
   .btn-t-contrast:hover, .btn-t-contrast:focus {
     border-color: #676c6e;
