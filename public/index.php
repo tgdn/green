@@ -38,7 +38,6 @@ $page = null;
 
 $page_request = array(
     'controller' => null,
-    'action' => null,
     'params' => array()
 );
 
@@ -74,6 +73,10 @@ function load_page($page_controller_class) {
         // manually thrown 403 exception
         $err = $e->getMessage() ? $e->getMessage() : "You don't have access to this page.";
         $page = new Http403($err);
+    } catch (Http404Exception $e) {
+        // manually thrown 403 exception
+        $err = $e->getMessage() ? $e->getMessage() : "The page you requested does not exist.";
+        $page = new Http404($err);
     } catch (Exception $e) {
         // throw 500 if exception is thrown.
         // makes it easier for error handling
@@ -96,6 +99,9 @@ if (isset($_GET['url'])) {
     } else {
         $page_controller_class = $matched_url['controller'];
         $page_params = $matched_url['params'];
+
+        $page_request['controller'] = $page_controller_class;
+        $page_request['params'] = $page_params;
 
         // load page
         load_page($page_controller_class);
