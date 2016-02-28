@@ -26,6 +26,10 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: normal
 }
 
+p {
+    line-height: 1.7;
+}
+
 .clear {
     clear: both;
     overflow: hidden;
@@ -149,6 +153,65 @@ form#register-form .form-control {
 form#login-form .form-control:focus,
 form#register-form .form-control:focus {
     border-color: #FFBD91;
+}
+
+/* dashboard */
+ul.dashboard-house-list,
+ul.house-members-list {
+    margin-bottom: 40px;
+}
+ul.dashboard-house-list + div,
+ul.house-members-list + div {
+    /* button below list */
+    margin-bottom: 25px;
+}
+
+ul.dashboard-house-list li,
+ul.house-members-list li {
+    text-align: center;
+    margin-bottom: 6px;
+}
+ul.house-members-list li { text-align: left; }
+ul.dashboard-house-list li:last-child,
+ul.house-members-list li:last-child {
+    border-bottom: 0;
+}
+
+/* dashboard list */
+ul.dashboard-house-list li a {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 3px;
+    border: 1px solid #e4e4e4;
+    color: #777;
+}
+ul.dashboard-house-list li a:hover,
+ul.dashboard-house-list li a:focus {
+    text-decoration: none;
+    border-color: #FFBD91;
+    color: #F5A36C;
+}
+
+/* members list */
+ul.house-members-list li > div {
+    padding: 10px 15px;
+    border-bottom: 1px solid #e4e4e4;
+    position: relative;
+}
+ul.house-members-list li:last-child > div {
+    border-bottom: none;
+}
+
+ul.house-members-list li > div > .house-members-list_name,
+ul.house-members-list li > div > .house-members-list_email {
+    display: block;
+    padding-right: 55px; /* dont overwrite del btn */
+}
+
+ul.house-members-list li > div > .house-members-list_del-btn {
+    position: absolute;
+    top: 18px;
+    right: 15px;
 }
 
 .navbar-default {
@@ -332,6 +395,13 @@ ul.list-container li input[type=text] {
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
 }
+.list-group-item.active,
+.list-group-item.active:focus,
+.list-group-item.active:hover {
+    background-color: #fff;
+    border-color: #ddd;
+    color: #F1843B;
+}
 
 /* panels */
 .panel-default {
@@ -346,6 +416,17 @@ ul.list-container li input[type=text] {
 .panel-default h4,
 .panel-default h5 {
     font-weight: 500;
+}
+
+.panel-default h1 + p,
+.panel-default h2 + p,
+.panel-default h3 + p,
+.panel-default h3 + p,
+.panel-default h4 + p,
+.panel-default h5 + p {
+    line-height: 1.7;
+    margin-top: -30px;
+    margin-bottom: 20px;
 }
 
 .panel-default h1,
@@ -530,6 +611,26 @@ p.lead {
   .btn-t-semi-transparent:active, .btn-t-semi-transparent:hover, .btn-t-semi-transparent:focus {
     background-color: rgba(0, 0, 0, 0.62);
     color: #fff; }
+
+.btn-t-red-outline {
+    background: transparent;
+    border: 1px solid #ED4F32;
+    background-color: #fff;
+    color: #ED4F32;
+    /* Firefox requires the important attribute */
+    text-shadow: none;
+}
+.btn-t-red-outline:hover,
+.btn-t-red-outline:focus,
+.btn-t-red-outline:active {
+    border-color: #ED4F32;
+    background-color: #ED4F32;
+    color: #fff;
+}
+.btn-t-red-outline:active {
+    border-color: #C55743;
+    color: #fff;
+}
 
 .form-container p.lead {
   font-size: 17px;
