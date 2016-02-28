@@ -52,8 +52,8 @@
                                 <?php } ?>
 
                                 <div class="form-group text-center center-block">
-                                    <input type="submit" value="Create" class="btn btn-lg btn-t-contrast">
-                                    <a href="<?php echo Utils::url('dashboard') ?>" class="btn btn-lg btn-t-plain">Cancel</a>
+                                    <input type="submit" value="Create" class="btn btn-t-contrast">
+                                    <a href="<?php echo Utils::url('dashboard') ?>" class="btn btn-t-plain">Cancel</a>
                                 </div>
                             </form>
                         </div>

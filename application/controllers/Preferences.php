@@ -1,6 +1,6 @@
 <?php
 
-class Preferences extends Dashboard {
+class Preferences extends HouseView {
 
     protected function before_action() {
         Utils::login_required();
@@ -10,7 +10,7 @@ class Preferences extends Dashboard {
     }
 
     protected function get() {
-
+        $this->get_house();
     }
 
     protected function post() {

@@ -23,7 +23,9 @@ return array(
     'house_view' => url('/^h\/(?<id>\d+)\/?$/', 'HouseView'),
     'house_members' => url('/^h\/(?<id>\d+)\/members\/?$/', 'HouseMembers'),
 
-    url('/^zdz\/ffe\/(?<pk>\d+)\/?$/', 'HomeHouse')
+    # json api
+    'house_members_add' => url('/^json\/h\/(?<id>\d+)\/members\/add\/?$/', 'HouseMembersAdd'),
+    'house_members_remove' => url('/^json\/h\/(?<id>\d+)\/members\/remove\/?$/', 'HouseMembersRemove'),
 );
 
 ?>

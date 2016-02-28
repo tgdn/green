@@ -53,8 +53,11 @@ class HouseCreate extends Page {
             $u = UserModel::get_by_email($email)->fetchArray(SQLITE3_ASSOC);
             /* add if he exists */
             if ($u && gettype($u) == 'array') {
-                HouseModel::add_user_to_household($u['id'], $house_id);
-                array_push($final_emails, $email);
+                /* add if the email does not belong to current user */
+                if ($user->pk != $u['id']) {
+                    HouseModel::add_user_to_household($u['id'], $house_id);
+                    array_push($final_emails, $email);
+                }
             }
         }
 
