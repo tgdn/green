@@ -38,6 +38,7 @@ create table bills (
     id integer NOT NULL PRIMARY KEY AUTOINCREMENT,
     name varchar(100) NOT NULL,
     cost integer NOT NULL,
+    paid boolean DEFAULT (0),
     house_id integer NOT NULL,
 
     created_at datetime default CURRENT_TIMESTAMP NOT NULL,
