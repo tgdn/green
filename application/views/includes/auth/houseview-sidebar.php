@@ -12,20 +12,20 @@ if (isset($this) && isset($this->context['nav'])) {
         <li class="list-group-item">
             <h5><b><?php echo Utils::escape($this->house['name']) ?></b></h5>
         </li>
-        <a href="<?php echo Utils::url('h/' . $this->house['id']) ?>" class="list-group-item">
+        <a tabindex="4" href="<?php echo Utils::url('h/' . $this->house['id'] . '/bills') ?>" class="list-group-item <?php echo $class == 'bills' ? 'active' : '' ?>">
             <span class="pull-right"><i class="icon ion-ios-arrow-right"></i></span>
             Bills
         </a>
-        <a href="<?php echo Utils::url('h/' . $this->house['id'] . '/members') ?>" class="list-group-item <?php echo $class == 'members' ? 'active' : '' ?>">
+        <a tabindex="5" href="<?php echo Utils::url('h/' . $this->house['id'] . '/members') ?>" class="list-group-item <?php echo $class == 'members' ? 'active' : '' ?>">
             <span class="pull-right"><i class="icon ion-ios-arrow-right"></i></span>
             Members
         </a>
-        <a href="<?php echo Utils::url('h/' . $this->house['id'] . '/notifications') ?>" class="list-group-item <?php echo $class == 'notif' ? 'active' : '' ?>">
+        <a tabindex="6" href="<?php echo Utils::url('h/' . $this->house['id'] . '/notifications') ?>" class="list-group-item <?php echo $class == 'notif' ? 'active' : '' ?>">
             <span class="pull-right"><i class="icon ion-ios-arrow-right"></i></span>
             Notifications
             <span class="badge floatnone"></span>
         </a>
-        <a href="<?php echo Utils::url('h/' . $this->house['id'] . '/settings') ?>" class="list-group-item <?php echo $class == 'prefs' ? 'active' : '' ?>">
+        <a tabindex="7" href="<?php echo Utils::url('h/' . $this->house['id'] . '/settings') ?>" class="list-group-item <?php echo $class == 'prefs' ? 'active' : '' ?>">
             <span class="pull-right"><i class="icon ion-ios-arrow-right"></i></span>
             Preferences
         </a>
@@ -37,9 +37,14 @@ if (isset($this) && isset($this->context['nav'])) {
                 People
             </h5>
             <ul class="list-unstyled">
-                <li class="empty-list">
-                    <em>No people yet</em>
+                <?php while ($member = $this->members10->fetchArray(SQLITE3_ASSOC)): ?>
+                <li>
+                    <?php echo Utils::escape($member['full_name']) ?>
                 </li>
+                <?php endwhile; ?>
+                <!-- <li class="empty-list">
+                    <em>No people yet</em>
+                </li> -->
             </ul>
         </div>
     </div>

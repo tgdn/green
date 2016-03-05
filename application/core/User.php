@@ -1,7 +1,7 @@
 <?php
 
 
-class BaseUser {
+class BaseUser implements JsonSerializable {
 
     private $pk = null;
     private $full_name = null;
@@ -11,6 +11,16 @@ class BaseUser {
 
     public function __get($name) {
         return $this->$name;
+    }
+
+    public function jsonSerialize() {
+        return array(
+            'id' => $this->pk,
+            'full_name' => $this->full_name,
+            'email' => $this->email,
+            'created_at' => $this->created_at,
+            'last_login' => $this->last_login
+        );
     }
 
     public static function fromID($uid) {

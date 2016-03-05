@@ -1,9 +1,7 @@
 var path = require('path');
 var config = {
     entry: {
-        dashboard: path.resolve(__dirname, 'app/dashboard.js'),
-        housecreate: path.resolve(__dirname, 'app/housecreate.js'),
-        login: path.resolve(__dirname, 'app/login.js')
+        createbill: path.resolve(__dirname, 'create-bill.js'),
     },
     output: {
         path: path.join(__dirname, 'build'),
@@ -11,10 +9,12 @@ var config = {
     },
     module: {
         loaders: [{
-            test: /\.jsx?$/,
+            test: /\.js$/,
             loader: 'babel',
             query: {
-                presets: ['es2015', 'react']
+                presets: ['es2015'],
+                //compact: true,
+                comments: false
             }
         }]
     }

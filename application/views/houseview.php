@@ -6,7 +6,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="center-block col-sm-12">
+        <div class="center-block col-sm-12" id="app">
             <?php $this->get_include('auth/houseview-sidebar') ?>
 
             <div class="col-sm-8 col-md-8 col-lg-6">
@@ -33,5 +33,6 @@
 </div>
 
 <?php $this->get_include('scripts'); ?>
+<!-- <script src="<?php echo Utils::static_file('js/lib/build/dashboard.bundle.js') ?>" type="text/javascript"></script> -->
 </body>
 </html>

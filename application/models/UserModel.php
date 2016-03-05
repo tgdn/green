@@ -2,12 +2,18 @@
 
 class UserModel {
 
-    public static function get_user($uid) {
+    public static function get_user($uid, $password = true) {
         global $database;
 
-        $sql = 'select
-        id, full_name, email, password, created_at, last_login
-        from users where id = :id limit 1';
+        if ($password) {
+            $sql = 'select
+            id, full_name, email, password, created_at, last_login
+            from users where id = :id limit 1';
+        } else {
+            $sql = 'select
+            id, full_name, email, created_at, last_login
+            from users where id = :id limit 1';
+        }
 
         $st = $database->prepare($sql);
 

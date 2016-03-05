@@ -10,6 +10,10 @@ class Page {
     /* set this to true if needs no template */
     protected $template_less = false;
 
+    /* update this if json */
+    protected $accepts_json = false;
+    protected $json_response = false;
+
     protected $title = null;
     protected $context = array();
 
@@ -28,6 +32,11 @@ class Page {
             $this->get_template();
         }
 
+        if (isset($_GET['json']) && $this->accepts_json) {
+            $this->template_less = true;
+            $this->json_response = true;
+        }
+
         // call an action before controller
         $this->before_action();
 
@@ -43,7 +52,7 @@ class Page {
         $this->after_action();
 
         $this->construct_title();
-        $this->load_template();
+        $this->render();
     }
 
     public function __get($name) {
@@ -86,6 +95,19 @@ class Page {
         $this->get_include('static');
 
         require $this->template_name;
+    }
+
+    /* render page */
+    protected function render() {
+        global $user;
+
+        if ($this->json_response) {
+            header('Content-Type: application/json');
+            $this->context['you'] = $user;
+            echo json_encode($this->context, JSON_PRETTY_PRINT);
+        } else {
+            $this->load_template();
+        }
     }
 
     public function authenticate_user() {

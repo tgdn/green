@@ -23,6 +23,10 @@ return array(
     'house_view' => url('/^h\/(?<id>\d+)\/?$/', 'HouseView'),
     'house_members' => url('/^h\/(?<id>\d+)\/members\/?$/', 'HouseMembers'),
 
+    'bill_create' => url('/^h\/(?<id>\d+)\/bills\/create\/?$/', 'BillCreate'),
+    'bill_index' => url('/^h\/(?<id>\d+)\/bills\/?$/', 'BillIndex'),
+    'bill_view' => url('/^h\/(?<id>\d+)\/bills\/(?<billid>\d+)\/?$/', 'BillView'),
+
     # json api
     'house_members_add' => url('/^json\/h\/(?<id>\d+)\/members\/add\/?$/', 'HouseMembersAdd'),
     'house_members_remove' => url('/^json\/h\/(?<id>\d+)\/members\/remove\/?$/', 'HouseMembersRemove'),

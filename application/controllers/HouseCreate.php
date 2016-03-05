@@ -36,7 +36,10 @@ class HouseCreate extends Page {
         /* check for valid emails */
         foreach ($emails as $email) {
             if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                array_push($valid_emails, $email);
+                /* add if not already in array */
+                if (!in_array($email, $valid_emails)) {
+                    array_push($valid_emails, $email);
+                }
             }
         }
 
@@ -47,13 +50,14 @@ class HouseCreate extends Page {
 
         /* add current user to household */
         HouseModel::add_user_to_household($user->pk, $house_id);
+
         /* add other users */
         foreach ($valid_emails as $email) {
             /* get user from db */
             $u = UserModel::get_by_email($email)->fetchArray(SQLITE3_ASSOC);
             /* add if he exists */
             if ($u && gettype($u) == 'array') {
-                /* add if the email does not belong to current user */
+                /* add if the this user and current user are not the same */
                 if ($user->pk != $u['id']) {
                     HouseModel::add_user_to_household($u['id'], $house_id);
                     array_push($final_emails, $email);

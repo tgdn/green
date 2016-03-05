@@ -51,7 +51,8 @@ p {
     transition: all 0.08s;
 }
 
-a.brand:hover {
+a.brand:hover,
+a.brand:focus {
     cursor: pointer;
     color: #ff944d !important;
     text-decoration: none;
@@ -213,6 +214,125 @@ ul.house-members-list li > div > .house-members-list_del-btn {
     top: 18px;
     right: 15px;
 }
+
+/* create bill */
+.bills-create_members-option-radio input[type=radio]:focus {
+    outline: initial !important;
+}
+
+.bills-create_members-select-list > div.checkbox {
+    padding: 0;
+    border: 1px solid #e4e4e4;
+    border-radius: 2px;
+    /*display: table;*/
+    display: inline-block;
+    overflow: hidden;
+    border-collapse: collapse;
+}
+
+.bills-create_members-select-list > div.checkbox > label {
+    /*display: inline-block;*/
+    display: table-cell;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 12px;
+    padding-right: 16px;
+    background-color: rgb(248, 248, 248);
+    border-right: 1px solid #e4e4e4;
+    width: 75%;
+}
+.bills-create_members-select-list > div.checkbox > label > span {
+    padding-left: 26px;
+    position: relative;
+    color: #ababab;
+}
+.bills-create_members-select-list > div.checkbox > label > span > i.icon {
+    font-size: 1.5em;
+    position: absolute;
+    line-height: 16px;
+    left: 0;
+    top: -2px;
+    color: #ddd;
+}
+
+.bills-create_members-select-list > div.checkbox input[type=checkbox] {
+    /*visibility: hidden;
+    display: none;*/
+    /* if we hide the element we won't be able to focus it */
+}
+
+.bills-create_members-select-list > div.checkbox input[type=checkbox]:checked + span,
+.bills-create_members-select-list > div.checkbox input[type=checkbox]:checked + span > i.icon {
+    color: #F5A36C;
+}
+
+.bills-create_members-select-list > div.checkbox input[type=checkbox]:not(:checked) + span > i.icon.checked {
+    display: none;
+}
+.bills-create_members-select-list > div.checkbox input[type=checkbox]:checked + span > i.icon.checked {
+    display: block;
+}
+.bills-create_members-select-list > div.checkbox input[type=checkbox]:not(:checked) + span > i.icon.unchecked {
+    display: block;
+}
+.bills-create_members-select-list > div.checkbox input[type=checkbox]:checked + span > i.icon.unchecked {
+    display: none !important;
+}
+
+/* little hack: weird problem here
+the checked icon always displayed no matter what,
+this little line fixes it */
+i.icon.checked { display: none; }
+
+.bills-create_members-select-list > div.checkbox input[type=checkbox]:not(:checked):focus + span {
+    color: #717171;
+}
+.bills-create_members-select-list > div.checkbox input[type=checkbox]:not(:checked):focus + span > i.icon {
+    color: #6d6d6d;
+}
+
+.bills-create_members-select-list > div.checkbox input[type=checkbox]:checked:focus + span {
+    color: #D46B25;
+}
+.bills-create_members-select-list > div.checkbox input[type=checkbox]:checked:focus + span > i.icon {
+    color: #D46B25;
+}
+
+.bills-create_members-select-list > div.checkbox > .cost-container {
+    display: table-cell;
+}
+.bills-create_members-select-list > div.checkbox > .cost-container > input[type=text] {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding-left: 12px;
+    padding-right: 12px;
+    text-align: center;
+}
+.bills-create_members-select-list > div.checkbox > .cost-container > input[type=text]:disabled {
+    color:#ccc;
+}
+
+/* bills index */
+#billindex-app .bills-table tr.bill-el:hover,
+#billindex-app .bills-table tr.bill-el:focus {
+    cursor: pointer;
+    background: #f9f9f9;
+}
+
+#billindex-app .bills-table tr.bill-el,
+#billindex-app .bills-table tr.bill-el td {
+    position: relative;
+}
+
+#billindex-app .bills-table i.icon.has-paid {
+    font-size: 1.9em;
+    position: absolute;
+    top: 1px;
+    left: 18px;
+}
+
 
 .navbar-default {
     background-color: rgba(0, 0, 0, 0.78);

@@ -18,11 +18,13 @@
 
                         <div id="housesettings-app" class="larger-font">
 
-                            <form method="post" action="">
+                            <form method="post" action="" id="house-settings-form">
                                 <div class="form-group form-group-lg">
                                     <p class="help-block">
                                         <b class="text-dark">You can change your house name.</b> And reflect changes in your lifestyle.
                                     </p>
+                                </div>
+                                <div class="form-group form-group-lg">
                                     <label for="name-id">House name</label>
                                     <input type="text" name="name" class="form-control" id="name-id" placeholder="Ex. Flat 16, Home, Summer camp ..." value="<?php echo Utils::escape($this->house['name']) ?>">
                                 </div>
@@ -68,5 +70,6 @@
 </div>
 
 <?php $this->get_include('scripts'); ?>
+<script src="<?php echo Utils::static_file('js/dashboard.js') ?>" type="text/javascript"></script>
 </body>
 </html>
