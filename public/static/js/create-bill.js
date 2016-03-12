@@ -163,7 +163,7 @@ class BillForm {
         if (members_count == 0) return; /* we don't want divisions by zero */
 
         /* simply set to zero */
-        if (cost == NaN || cost == null || cost.length == 0) cost = 0;
+        if (isNaN(cost) || cost == null || cost.length == 0) cost = 0;
 
         /* only have two digits after the decimal point */
         let cost_per_member = (cost / members_count).toFixed(2);
