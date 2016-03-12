@@ -2,7 +2,6 @@
 
 class HouseMembers extends HouseView {
 
-
     protected function update_instance() {
         $this->accepts_json = true;
     }
@@ -18,11 +17,8 @@ class HouseMembers extends HouseView {
         global $user;
 
         $this->get_house();
-        $members = $this->get_members();
-
-        if (!$this->json_response) {
-            $this->context['members'] = $members;
-        }
+        $this->context['members'] = $this->get_members();
+        $this->context['members_count'] = HouseModel::count_users_for_house($this->house['id']);
     }
 }
 

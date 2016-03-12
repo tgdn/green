@@ -5,6 +5,7 @@ class House implements JsonSerializable {
 
     private $id = null;
     private $name = null;
+    private $token = null;
     private $created_at = null;
     private $modified_at = null;
 
@@ -19,6 +20,7 @@ class House implements JsonSerializable {
         return array(
             'id' => $this->id,
             'name' => $this->name,
+            'token' => $this->token,
             'created_at' => $this->created_at,
             'modified_at' => $this->modified_at,
             'members' => $this->members,
@@ -41,6 +43,7 @@ class House implements JsonSerializable {
     protected function loadFromDbResult($db_result) {
         $this->id = $db_result['id'];
         $this->name = $db_result['name'];
+        $this->token = $db_result['token'];
         $this->created_at = $db_result['created_at'];
         $this->modified_at = $db_result['modified_at'];
 

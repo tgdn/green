@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.3",
-    "underscore": "^1.8.3",
+    "lodash": "^4.6.1",
     "validator": "^4.9.0"
   },
   "devDependencies": {

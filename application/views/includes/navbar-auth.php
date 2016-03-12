@@ -14,11 +14,14 @@
 
         <div class="navbar-container" id="main-menu">
             <ul class="nav navbar-nav">
-                <!-- <li <?php /*echo $class == 'dashboard' ? 'class="active"' : ''*/ ?>><a href="<?php echo Utils::url('dashboard') ?>">Dashboard</a></li> -->
                 <?php if (isset($this->house)): ?>
                 <li class="active"><a tabindex="2" href="<?php echo Utils::url('h/' . $this->house['id'] . '/bills/create') ?>">New bill</a></li>
                 <?php endif; ?>
-                <li><a tabindex="3" href="<?php echo Utils::url('logout') ?>">Log out</a></li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+                <!-- <li <?php /*echo $class == 'dashboard' ? 'class="active"' : ''*/ ?>><a href="<?php echo Utils::url('dashboard') ?>">Dashboard</a></li> -->
+                <li <?php echo $class == 'account' ? 'class="active"' : '' ?>><a tabindex="3" href="<?php echo Utils::url('account') ?>">Account</a></li>
+                <li><a tabindex="4" href="<?php echo Utils::url('logout') ?>">Log out</a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->

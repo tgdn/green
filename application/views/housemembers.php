@@ -30,16 +30,26 @@
                                         <small class="house-members-list_email text-muted">
                                             <?php echo Utils::escape($member['email']) ?>
                                         </small>
-                                        <button data-action="remove-from-house" data-title="<?php echo $is_you ? 'Leave ' . Utils::escape($this->house['name']) . '?' : 'Remove ' . Utils::escape($member['full_name']) . ' from ' . Utils::escape($this->house['name']) . '?' ?>" class="btn btn-xs btn-t-red-outline house-members-list_del-btn">
+                                        <?php if ($this->context['members_count'] > 1): ?>
+                                        <a href="<?php echo Utils::url('h/' . $this->house['id'] . '/members/' . $member['id'] . '/remove') ?>"
+                                            data-action="remove-from-house"
+                                            title="<?php echo $is_you ? 'Leave ' . Utils::escape($this->house['name']) . '?' : 'Remove ' . Utils::escape($member['full_name']) . ' from ' . Utils::escape($this->house['name']) . '?' ?>"
+                                            class="btn btn-xs btn-t-red-outline house-members-list_del-btn">
                                             <?php echo $is_you ? 'leave' : 'remove' ?>
-                                        </button>
+                                        </a>
+                                        <?php else: ?>
+                                            <small class="text-right house-members-list_del-btn text-muted">
+                                                There aren't any actions for you to take
+                                                on yourself.
+                                            </small>
+                                        <?php endif; ?>
                                     </div>
                                 </li>
                             <?php endwhile; ?>
                             </ul>
 
                             <div class="text-center">
-                                <a class="btn btn-t-plain" href="<?php echo Utils::url('h/create') ?>">
+                                <a class="btn btn-t-plain" href="<?php echo Utils::url('h/' . $this->house['id'] . '/members/add') ?>">
                                     Add housemates
                                 </a>
                             </div>
@@ -47,15 +57,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12 col-sm-offset-0 col-md-8 col-md-offset-4 col-lg-offset-0 col-lg-3">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <ul class="list-inline footer-list">
-                            <li>CS139 - University of Warwick</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <?php $this->get_include('auth/footer') ?>
             <div class="clear"></div>
         </div>
     </div>

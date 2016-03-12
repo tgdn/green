@@ -23,7 +23,8 @@ if (isset($this) && isset($this->context['nav'])) {
         <a tabindex="6" href="<?php echo Utils::url('h/' . $this->house['id'] . '/notifications') ?>" class="list-group-item <?php echo $class == 'notif' ? 'active' : '' ?>">
             <span class="pull-right"><i class="icon ion-ios-arrow-right"></i></span>
             Notifications
-            <span class="badge floatnone"></span>
+            <?php $notif_count = Utils::escape($this->context['notifications_count']) ?>
+            <span class="badge floatnone"><?php echo $notif_count == 0 ? '' : $notif_count ?></span>
         </a>
         <a tabindex="7" href="<?php echo Utils::url('h/' . $this->house['id'] . '/settings') ?>" class="list-group-item <?php echo $class == 'prefs' ? 'active' : '' ?>">
             <span class="pull-right"><i class="icon ion-ios-arrow-right"></i></span>

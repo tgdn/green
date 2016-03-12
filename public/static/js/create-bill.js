@@ -1,4 +1,4 @@
-import _ from 'underscore';
+import _ from 'lodash';
 
 class Component {
     constructor(el) {
@@ -248,7 +248,7 @@ class BillForm {
 
         let
             data = {},
-            url = document.origin.concat(document.location.pathname.concat(document.location.search ? document.location.search.concat('&json') : '?json'));;
+            url = document.origin.concat(document.location.pathname.concat(document.location.search ? document.location.search.concat('&json') : '?json'));
 
         data.cost = this.inputs['cost'].value;
         data.name = this.inputs['name'].value;
@@ -261,15 +261,19 @@ class BillForm {
             data.usercosts[el.inputcost.attr('name')] = el.inputcost.val();
         });
 
-        console.log(data);
-        console.log(url);
-
         $.post(url, data, (resp) => {
-            /* enable submit button */
-            this.submitBtn.attr('disabled', false);
-            this.submitBtn.val(this.submitBtnVal);
-
-            window.location = resp.billurl;
+            if (!resp.success) {
+                /* enable submit button */
+                this.submitBtn.attr('disabled', false);
+                this.submitBtn.val(this.submitBtnVal);
+                /* add error messages */
+                resp.messages.forEach((error) => {
+                    errorsBlock.append(`<span class="help-block">${error}</span>`);
+                });
+            } else {
+                /* redirect on success */
+                window.location = resp.billurl;
+            }
         });
 
     }

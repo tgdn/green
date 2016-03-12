@@ -1,12 +1,13 @@
 <?php
 
-class BillIndex extends HouseView {
+class BillsIndex extends HouseView {
 
     protected function before_action() {
         Utils::login_required();
 
         $this->title = 'View bills';
         $this->context['nav'] = 'bills';
+        $this->context['subnav'] = 'all';
     }
 
     protected function get() {

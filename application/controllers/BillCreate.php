@@ -77,6 +77,7 @@ class BillCreate extends HouseView {
             array_push($this->form_errors, "You need to specify a valid amount");
         }
 
+        /* prepare each user specific bill */
         foreach ($userselect as $userid) {
             /* check that user has corresponding amount */
             $key = 'user-' . $userid . '-cost';
@@ -122,11 +123,17 @@ class BillCreate extends HouseView {
         $cost_norm = $cost * 100;
 
         /* create house bill */
-        $new_bill_id = BillModel::create($name, $cost_norm, $this->house['id']);
+        $new_bill_id = BillModel::create($user->pk, $name, $cost_norm, $this->house['id']);
+        /* TODO: create notification */
 
         /* then create a specific user bill for each selected user */
         foreach ($usercosts_final as $user_cost_arr) {
-            BillModel::create_user_bill($user_cost_arr['cost'], $user_cost_arr['userid'], $new_bill_id);
+            $u_bill_id = BillModel::create_user_bill($user_cost_arr['cost'], $user_cost_arr['userid'], $new_bill_id);
+            /* TODO: create notifications */
+            $ufname = $user->pk == $user_cost_arr['userid'] ? 'yourself' : $user->full_name;
+            $ucost = number_format($user_cost_arr['cost'] / 100.0, 2, '.', ',');
+            $notif_message = "You were added to the bill \"${name}\" by ${ufname}, your share is £${ucost}.";
+            NotificationModel::create($user_cost_arr['userid'], $this->house['id'], "New bill", $notif_message, "bills", $u_bill_id);
         }
 
         $this->context['billid'] = $new_bill_id;
@@ -138,7 +145,7 @@ class BillCreate extends HouseView {
         $this->context['messages'] = $this->form_errors;
         $this->context['success'] = sizeof($this->form_errors) == 0 ? true : false;
 
-        /* so it looks good */
+        /* so ajax looks good */
         sleep(1);
     }
 }

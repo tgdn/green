@@ -8,6 +8,7 @@ class BillView extends HouseView {
         Utils::login_required();
 
         $this->title = 'View bill';
+        $this->context['nav'] = 'bills';
     }
 
     protected function get() {

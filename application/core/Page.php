@@ -27,14 +27,15 @@ class Page {
         /* update variables before template, get or post */
         $this->update_instance();
 
-        // get view
-        if (!$this->template_less) {
-            $this->get_template();
-        }
-
+        /* check if expecting json response */
         if (isset($_GET['json']) && $this->accepts_json) {
             $this->template_less = true;
             $this->json_response = true;
+        }
+
+        // get view
+        if (!$this->template_less) {
+            $this->get_template();
         }
 
         // call an action before controller
@@ -83,7 +84,18 @@ class Page {
     }
 
     protected function get_include($filename) {
-        require VIEWS . 'includes' . DIRECTORY_SEPARATOR . $filename . '.php';
+        $r_path = VIEWS . 'includes' . DIRECTORY_SEPARATOR . $filename . '.php';
+        /* avoid ugly errors */
+        if (file_exists($r_path)) {
+            require $r_path;
+        } else {
+            if (DEBUG) {
+                echo '<b>Warning: </b> <samp>' . $filename . '</samp> could not be included';
+            } else {
+                /* fail silently */
+                echo '<br>';
+            }
+        }
     }
 
     /* include template */
@@ -104,7 +116,7 @@ class Page {
         if ($this->json_response) {
             header('Content-Type: application/json');
             $this->context['you'] = $user;
-            echo json_encode($this->context, JSON_PRETTY_PRINT);
+            echo json_encode($this->context, DEBUG ? JSON_PRETTY_PRINT : 0);
         } else {
             $this->load_template();
         }

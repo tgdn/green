@@ -6,6 +6,7 @@ class BaseUser implements JsonSerializable {
     private $pk = null;
     private $full_name = null;
     private $email = null;
+    private $hashed_pass = null;
     private $created_at = null;
     private $last_login = null;
 
@@ -35,6 +36,7 @@ class BaseUser implements JsonSerializable {
         $this->pk = $uid;
         $this->full_name = $db_query['full_name'];
         $this->email = $db_query['email'];
+        $this->hashed_pass = $db_query['password'];
         $this->created_at = $db_query['created_at'];
         $this->last_login = $db_query['last_login'];
 
@@ -53,11 +55,15 @@ class BaseUser implements JsonSerializable {
         return !$this->is_authenticated();
     }
 
-    protected function verify_password($raw, $hash) {
+    public function verify_password($raw, $hash) {
         return password_verify($raw, $hash);
     }
 
-    protected function hash_password($password) {
+    public function instance_verify_password($raw) {
+        return password_verify($raw, $this->hashed_pass);
+    }
+
+    public function hash_password($password) {
         return password_hash($password, PASSWORD_DEFAULT, ['cost' => 8]);
     }
 }
