@@ -91,6 +91,9 @@ class User extends BaseUser {
                 $user->loadFromID($uid);
                 $_SESSION['uid'] = $uid;
 
+                /* regenerate session id to protect against SESSION FIXATION */
+                session_regenerate_id();
+
                 return true;
             }
         }
