@@ -16,6 +16,7 @@
                         </h3>
                         <div id="housecreate-app" class="larger-font">
                             <form method="post" action="">
+                                <?php echo $this->context['csrf_token_input']; ?>
                                 <div class="form-group form-group-lg">
                                     <p class="help-block text-lg">
                                         Name your house after the group that will be living together.

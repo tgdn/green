@@ -1,6 +1,6 @@
 <?php
 
-class Home extends Page {
+class Home extends FormPage {
 
     protected $login_errors = array();
 
@@ -9,10 +9,6 @@ class Home extends Page {
 
         $this->title = "Home";
         $this->context['nav'] = 'home';
-    }
-
-    protected function get() {
-        /* generate CSRF token */
     }
 
     protected function post() {

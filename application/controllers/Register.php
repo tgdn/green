@@ -1,6 +1,6 @@
 <?php
 
-class Register extends Page {
+class Register extends FormPage {
 
     protected $register_errors = array();
 

@@ -21,6 +21,7 @@
     <div class="row">
         <div class="center-block col-sm-6 col-md-5 col-lg-4" id="public-app-main">
             <form method="post" action="" id="login-form">
+                <?php echo $this->context['csrf_token_input'] ?>
                 <div class="form-group form-group-lg">
                     <input type="email" name="email" class="form-control" id="email-id" placeholder="Email">
                 </div>

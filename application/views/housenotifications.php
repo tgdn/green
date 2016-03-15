@@ -21,7 +21,7 @@
                             <?php
                             $notifcount = 0;
                             ?>
-                            <ul class="list-unstyled house-members-list">
+                            <ul class="list-unstyled house-notifications-list">
                             <?php while ($notif = $this->context['notifications']->fetchArray(SQLITE3_ASSOC)): ?>
                                 <?php
                                 $created_at = new DateTime($notif['created_at']);

@@ -1,6 +1,6 @@
 <?php
 
-class HouseCreate extends Page {
+class HouseCreate extends FormPage {
 
     protected $form_errors = array();
 
