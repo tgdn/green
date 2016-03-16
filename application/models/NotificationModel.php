@@ -18,7 +18,7 @@ class NotificationModel {
 
         $sql = 'select * from notifications
         where user_id = :userid
-        order by created_at
+        order by created_at DESC
         limit :limit';
         $st = $database->prepare($sql);
         $st->bindValue(':userid', $userid, SQLITE3_INTEGER);
@@ -32,7 +32,7 @@ class NotificationModel {
 
         $sql = 'select * from notifications
         where user_id = :userid and house_id = :houseid
-        order by created_at
+        order by created_at DESC
         limit :limit';
         $st = $database->prepare($sql);
         $st->bindValue(':userid', $userid, SQLITE3_INTEGER);
@@ -48,7 +48,7 @@ class NotificationModel {
         $sql = 'select * from notifications
         where user_id = :userid and house_id = :houseid
         and pending = :pending
-        order by created_at
+        order by created_at DESC
         limit :limit';
         $st = $database->prepare($sql);
         $st->bindValue(':userid', $userid, SQLITE3_INTEGER);

@@ -13,9 +13,10 @@
             <div class="col-sm-8 col-md-8 col-lg-6">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <h5>
+                        <h5 class="pull-left">
                             Your notifications
                         </h5>
+                        <a href="#" class="pull-right">Mark all as read</a>
 
                         <div id="housenotifications-app" class="larger-font">
                             <?php
@@ -28,10 +29,26 @@
                                 $notifcount++;
                                 ?>
                                 <li data-id="<?php echo $notif['id'] ?>">
-                                    <a href="">
-                                        <h5><?php echo Utils::escape($notif['name']) ?></h5>
-                                        <p><?php echo Utils::escape($notif['message']) ?></p>
-                                    </a>
+                                    <div class="notif-content">
+                                        <a href="">
+                                            <?php echo Utils::escape($notif['message']) ?>
+                                        </a>
+                                        <span class="notif-date">
+                                            <i class="icon ion-ios-calendar-outline"></i>
+                                            <?php echo $created_at->format('F j') ?>
+                                            at
+                                            <?php echo $created_at->format('H:i') ?>
+                                        </span>
+                                    </div>
+                                    <div class="notif-actions">
+                                        <label>
+                                            <input type="checkbox" name="userselect" class="sr-only" value="">
+                                            <span>
+                                                <i class="icon unchecked ion-ios-circle-filled" data-toggle="tooltip" data-placement="top" title="Mark as read"></i>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="clear"></div>
                                 </li>
                             <?php endwhile; ?>
                             </ul>
@@ -51,5 +68,13 @@
 <?php $this->get_include('scripts'); ?>
 <script src="<?php echo Utils::static_file('js/vendor/bootstrap-confirmation-t.js') ?>" type="text/javascript"></script>
 <script src="<?php echo Utils::static_file('js/dashboard.js') ?>" type="text/javascript"></script>
+
+<script type="text/javascript">
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip({
+        html: true
+    })
+});
+</script>
 </body>
 </html>

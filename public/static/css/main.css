@@ -13,6 +13,9 @@ select:focus {
     outline: none !important;
 }
 
+html, body { height: 100%;}
+body {position: relative;}
+
 body {
     background: #f7f7f7;
     border-top: #ff944d solid 4px;
@@ -228,6 +231,89 @@ ul.house-members-list li > div > .house-members-list_del-btn {
     top: 18px;
     right: 15px;
 }
+
+/* notifications */
+ul.house-notifications-list { margin-top: 40px; }
+ul.house-notifications-list > li {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+ul.house-notifications-list > li:not(:last-child) {
+    border-bottom: 1px solid #eee;
+}
+ul.house-notifications-list > li:hover {
+    background-color: #f9f9f9;
+}
+
+ul.house-notifications-list div.notif-content {
+    float: left;
+    width: calc(100% - 40px);
+}
+ul.house-notifications-list div.notif-actions {
+    float: right;
+}
+ul.house-notifications-list div.notif-content > a {
+    display: inline-block;
+    font-size: 90%;
+    color: #555;
+}
+
+ul.house-notifications-list div.notif-content > .notif-date {
+    display: block;
+    font-size: 86%;
+    color: #777;
+}
+ul.house-notifications-list div.notif-content > .notif-date > .icon {
+    font-size: 105%;
+    margin-right: 2px;
+    display: inline-block;
+}
+
+label > span > i.icon {
+    font-size: 1.1em;
+    line-height: 16px;
+    color: #5DBFFB;
+}
+
+ul.house-notifications-list div.notif-actions input[type=checkbox]:checked + span,
+ul.house-notifications-list div.notif-actions input[type=checkbox]:checked + span > i.icon {
+    color: #bbb;
+}
+
+ul.house-notifications-list div.notif-actions input[type=checkbox]:not(:checked) + span > i.icon.checked {
+    display: none;
+}
+ul.house-notifications-list div.notif-actions input[type=checkbox]:checked + span > i.icon.checked {
+    display: block;
+}
+ul.house-notifications-list div.notif-actions input[type=checkbox]:not(:checked) + span > i.icon.unchecked {
+    display: block;
+}
+ul.house-notifications-list div.notif-actions input[type=checkbox]:checked + span > i.icon.unchecked {
+    display: none !important;
+}
+
+/* little hack: weird problem here
+the checked icon always displayed no matter what,
+this little line fixes it */
+i.icon.checked { display: none; }
+
+ul.house-notifications-list div.notif-actions input[type=checkbox]:not(:checked):focus + span {
+    color: #717171;
+}
+ul.house-notifications-list div.notif-actions input[type=checkbox]:not(:checked):focus + span > i.icon {
+    color: #2B9FE6;
+}
+
+ul.house-notifications-list div.notif-actions input[type=checkbox]:checked:focus + span {
+    color: #D46B25;
+}
+ul.house-notifications-list div.notif-actions input[type=checkbox]:checked:focus + span > i.icon {
+    color: #777;
+}
+
 
 /* add housemate */
 #add-housemate-form .email-label-group {
