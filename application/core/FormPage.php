@@ -35,6 +35,8 @@ class FormPage extends Page {
                 header("Refresh:0"); /* refresh page, no need to display error */
         }
 
+        $this->get_csrf_token(true);
+
         parent::handle_post();
     }
 
