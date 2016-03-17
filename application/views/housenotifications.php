@@ -16,7 +16,7 @@
                         <h5 class="pull-left">
                             Your notifications
                         </h5>
-                        <a href="#" class="pull-right">Mark all as read</a>
+                        <a href="#" id="mark-all-read" class="pull-right">Mark all as read</a>
 
                         <div id="housenotifications-app" class="larger-font">
                             <?php
@@ -28,9 +28,9 @@
                                 $created_at = new DateTime($notif['created_at']);
                                 $notifcount++;
                                 ?>
-                                <li data-id="<?php echo $notif['id'] ?>">
+                                <li data-id="<?php echo Utils::escape($notif['id']) ?>">
                                     <div class="notif-content">
-                                        <a href="">
+                                        <a href="<?php echo Utils::url('h/' . $this->house['id'] . '/bills/' . $notif['source_id']) ?>">
                                             <?php echo Utils::escape($notif['message']) ?>
                                         </a>
                                         <span class="notif-date">
@@ -42,7 +42,7 @@
                                     </div>
                                     <div class="notif-actions">
                                         <label>
-                                            <input type="checkbox" name="userselect" class="sr-only" value="">
+                                            <input type="checkbox" name="userselect" class="sr-only" value="<?php echo Utils::escape($notif['id']) ?>" <?php echo $notif['pending'] == 0 ? 'checked' : '' ?>>
                                             <span>
                                                 <i class="icon unchecked ion-ios-circle-filled" data-toggle="tooltip" data-placement="top" title="Mark as read"></i>
                                             </span>
@@ -67,7 +67,7 @@
 
 <?php $this->get_include('scripts'); ?>
 <script src="<?php echo Utils::static_file('js/vendor/bootstrap-confirmation-t.js') ?>" type="text/javascript"></script>
-<script src="<?php echo Utils::static_file('js/dashboard.js') ?>" type="text/javascript"></script>
+<script src="<?php echo Utils::static_file('js/build/notifications.bundle.js') ?>" type="text/javascript"></script>
 
 <script type="text/javascript">
 $(function () {

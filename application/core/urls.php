@@ -22,6 +22,7 @@ return array(
     'house_delete' => url('/^h\/(?<id>\d+)\/delete\/?$/', 'HouseDelete'),
     'house_settings' => url('/^h\/(?<id>\d+)\/settings\/?$/', 'HouseSettings'),
     'house_notifications' => url('/^h\/(?<id>\d+)\/notifications\/?$/', 'HouseNotifications'),
+    'house_notifications_mark_read' => url('/^h\/(?<id>\d+)\/notifications\/mark_read\/(?<notif_id>\d+)?$/', 'HouseNotificationsMarkRead'),
 
     'house_view' => url('/^h\/(?<id>\d+)\/?$/', 'BillsSummary'), #'HouseView'),
     'house_members' => url('/^h\/(?<id>\d+)\/members\/?$/', 'HouseMembers'),
@@ -34,12 +35,18 @@ return array(
     'bills_pending' => url('/^h\/(?<id>\d+)\/bills\/pending\/?$/', 'BillsPending'),
     'bills_paid' => url('/^h\/(?<id>\d+)\/bills\/paid\/?$/', 'BillsPaid'),
 
+    'user_bills_index' => url('/^h\/(?<id>\d+)\/user-bills\/?$/', 'UserBillsIndex'),
+
     'bill_view' => url('/^h\/(?<id>\d+)\/bills\/(?<billid>\d+)\/?$/', 'BillView'),
+    'bill_view_pay' => url('/^h\/(?<id>\d+)\/bills\/(?<billid>\d+)\/pay\/(?<ubillid>\d+)\/?$/', 'BillViewPay'),
 
     # json api
     'json_house_members_add' => url('/^json\/h\/(?<id>\d+)\/members\/add\/?$/', 'HouseMembersAdd'),
     'json_house_members_remove' => url('/^json\/h\/(?<id>\d+)\/members\/remove\/?$/', 'HouseMembersRemove'),
     'json_house_settings_gen_token' => url('/^h\/(?<id>\d+)\/settings\/gentoken\/?$/', 'HouseSettingsGenToken'),
+
+    'json_bills_summary_' => url('/^h\/(?<id>\d+)\/bills\/summary_json\/?$/', 'BillsSummaryData'),
+    'json_bills_summary' => url('/^h\/(?<id>\d+)\/summary_json\/?$/', 'BillsSummaryData'),
 );
 
 ?>

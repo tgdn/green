@@ -505,6 +505,15 @@ i.icon.checked { display: none; }
     left: 18px;
 }
 
+/* view bill */
+.pay-block-btn {
+    margin-bottom: 30px;
+}
+.pay-block-btn h3 {
+    margin-top: 0px !important;
+    margin-bottom: 15px !important;
+}
+
 
 .navbar-default {
     background-color: rgba(0, 0, 0, 0.78);
@@ -696,6 +705,15 @@ ul.list-container li input[type=text] {
     background-color: #fff;
     border-color: #ddd;
     color: #F1843B;
+}
+.list-group-item > .badge {
+    position: absolute;
+    right: 32px;
+}
+.list-group-item.active>.badge,
+.nav-pills>.active>a>.badge {
+    color: #fff;
+    background: #F1843B;
 }
 
 /* nav pills */

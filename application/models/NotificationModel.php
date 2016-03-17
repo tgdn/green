@@ -65,9 +65,10 @@ class NotificationModel {
         $sql = 'select id from notifications
         where id = :id and user_id = :userid';
         $st = $database->prepare($sql);
+        $st->bindValue(':id', $id, SQLITE3_INTEGER);
         $st->bindValue(':userid', $userid, SQLITE3_INTEGER);
 
-        $r = $st->execute()->fetchArray(SQLITE3_ASSOC);;
+        $r = $st->execute()->fetchArray(SQLITE3_ASSOC);
         return ($r && gettype($r) == 'array') ? true : false;
     }
 

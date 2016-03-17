@@ -16,9 +16,9 @@ if (isset($this) && isset($this->context['subnav'])) {
         <li role="presentation" class="<?php echo $class == 'password' ? 'active' : '' ?>">
             <a tabindex="9" href="<?php echo Utils::url('account/password') ?>">Password</a>
         </li>
-        <li role="presentation" class="<?php echo $class == 'notifications' ? 'active' : '' ?>">
+        <!-- <li role="presentation" class="<?php echo $class == 'notifications' ? 'active' : '' ?>">
             <a tabindex="10" href="<?php echo Utils::url('account/notifications') ?>">Notifications</a>
-        </li>
+        </li> -->
     </ul>
     <div class="clear"></div>
 </div>

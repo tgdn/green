@@ -133,7 +133,11 @@ class BillCreate extends HouseView {
             $ufname = $user->pk == $user_cost_arr['userid'] ? 'yourself' : $user->full_name;
             $ucost = number_format($user_cost_arr['cost'] / 100.0, 2, '.', ',');
             $notif_message = "You were added to the bill \"${name}\" by ${ufname}, your share is £${ucost}.";
-            NotificationModel::create($user_cost_arr['userid'], $this->house['id'], "New bill", $notif_message, "bills", $u_bill_id);
+            NotificationModel::create($user_cost_arr['userid'], $this->house['id'], "New bill", $notif_message, "bills", $new_bill_id);
+
+            // TODO add settings to send mail
+            // $message = wordwrap($notif_message, 70, "\r\n");
+            // $sent = mail($user->email, 'New bill', $message);
         }
 
         $this->context['billid'] = $new_bill_id;

@@ -6,6 +6,8 @@ var config = {
         tokengen: path.resolve(__dirname, 'token-gen.js'),
         accountprofile: path.resolve(__dirname, 'account-profile.js'),
         accountpassword: path.resolve(__dirname, 'account-password.js'),
+        notifications: path.resolve(__dirname, 'notifications.js'),
+        billview: path.resolve(__dirname, 'billview.js'),
     },
     output: {
         path: path.join(__dirname, 'build'),

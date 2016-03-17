@@ -17,7 +17,6 @@ class HouseView extends Page {
 
     protected function get() {
         $this->get_house();
-        $this->get_context();
     }
 
     protected function get_house() {
@@ -31,8 +30,7 @@ class HouseView extends Page {
             $this->house = $house;
             $this->context['house'] = House::fromDbResult($house);
             $this->members10 = HouseModel::get_users_for_house($house_id, 10);
-
-            $this->context['notifications_count'] = NotificationModel::count_notifications_for_user_house($user->pk, $house['id']);
+            $this->get_context();
         } else {
             /* throw 404 if nothing was found
             this could be because user is not part of the household */
@@ -48,6 +46,9 @@ class HouseView extends Page {
     }
 
     protected function get_context() {
+        global $user;
+        $this->context['user_bills_count'] = BillModel::count_bills_for_user_house_status($user->pk, $this->house['id'], false);
+        $this->context['notifications_count'] = NotificationModel::count_notifications_for_user_house($user->pk, $this->house['id']);
     }
 
 }

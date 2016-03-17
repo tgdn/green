@@ -127,6 +127,15 @@
   // draws it.
   function drawChart() {
 
+    var url = document.origin.concat(document.location.pathname).concat('/summary_json');
+    var month_data_json = $.ajax({
+        url: url,
+        dataType:"json",
+        async: false
+    }).responseJSON.monthly_volume;
+
+    var month_data = new google.visualization.DataTable(month_data_json);
+
       // set bar chart options
   var barOptions = {
       height: 150,
@@ -175,7 +184,7 @@
       }
   };
 
-      var month_data = google.visualization.arrayToDataTable([
+      /*var month_data = google.visualization.arrayToDataTable([
           [
               { label: 'Month', id: 'month'},
               { label: 'Volume (GPB)', id: 'vol', type: 'number'}
@@ -187,7 +196,7 @@
           ['January',   0],
           ['February',  0],
           ['March',     0]
-      ]);
+      ]);*/
 
       var percentage_data = google.visualization.arrayToDataTable([
           ['Month', 'Volume (GPB)'],

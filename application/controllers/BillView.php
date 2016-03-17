@@ -2,8 +2,6 @@
 
 class BillView extends HouseView {
 
-    protected $bill;
-
     protected function before_action() {
         Utils::login_required();
 
@@ -24,7 +22,12 @@ class BillView extends HouseView {
 
         if ($bill && gettype($bill) == 'array') {
             /* it exists */
-            $this->bill = $bill;
+            $this->context['bill'] = $bill;
+            $this->context['user_bills'] = BillModel::get_userbills_for_bill($this->context['bill']['id']);
+            $this->context['can_pay'] = BillModel::can_pay($bill['id'], $user->pk);
+            if ($this->context['can_pay']) {
+                $this->context['ubill'] = BillModel::get_user_bill_for_id($bill['id'], $user->pk);
+            }
         } else {
             /* throw 404 if nothing was found
             this could be because the bill is not linked to this house */

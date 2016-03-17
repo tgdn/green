@@ -21,7 +21,7 @@
                 $tabindex++;
                 $billscount++;
             ?>
-            <tr tabindex="<?php echo $tabindex ?>" class="bill-el" data-url="<?php echo Utils::url('h/' . $this->house['id'] . '/bills/' . $bill['id']) ?>">
+            <tr tabindex="<?php echo $tabindex ?>" class="bill-el" data-url="<?php echo Utils::url('h/' . $this->house['id'] . '/bills/' . $bill['bill_id']) ?>">
                 <td><?php echo Utils::escape($bill['name']) ?></td>
                 <td><?php echo $created_at->format('F j, Y') ?></td>
                 <td><?php echo $bill['paid'] ? '<i class="icon has-paid ion-ios-checkmark-empty"></i>' : '' ?></td>
