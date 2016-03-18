@@ -184,20 +184,6 @@
       }
   };
 
-      /*var month_data = google.visualization.arrayToDataTable([
-          [
-              { label: 'Month', id: 'month'},
-              { label: 'Volume (GPB)', id: 'vol', type: 'number'}
-          ],
-          ['July',      0],
-          ['August',    0],
-          ['November',  0],
-          ['December',  0],
-          ['January',   0],
-          ['February',  0],
-          ['March',     0]
-      ]);*/
-
       var percentage_data = google.visualization.arrayToDataTable([
           ['Month', 'Volume (GPB)'],
           ['July',      0],
@@ -231,15 +217,6 @@
       nbillsm_chart.draw(nbillsm_data, barOptions);
   }
 </script>
-<style type="text/css">
-    div.google-visualization-tooltip {
-        border-radius: 3px;
-        overflow: hidden;
-    }
-    div.google-visualization-tooltip > ul {
-
-    }
-</style>
 
 <script type="text/javascript">
 $(function () {

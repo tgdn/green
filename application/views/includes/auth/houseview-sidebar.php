@@ -9,9 +9,9 @@ if (isset($this) && isset($this->context['nav'])) {
 ?>
 <div class="col-sm-4 col-lg-3">
     <div class="list-group">
-        <li class="list-group-item">
+        <div class="list-group-item">
             <h5><b><?php echo Utils::escape($this->house['name']) ?></b></h5>
-        </li>
+        </div>
         <a tabindex="4" href="<?php echo Utils::url('h/' . $this->house['id'] . '/bills') ?>" class="list-group-item <?php echo $class == 'bills' ? 'active' : '' ?>">
             <span class="pull-right"><i class="icon ion-ios-arrow-right"></i></span>
             Bills
