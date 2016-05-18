@@ -30,7 +30,6 @@ spl_autoload_register(function ($classname) {
 $database = new Database();
 $urls = require APP. 'core' . DIRECTORY_SEPARATOR . 'urls.php';
 
-require_once APP . 'core' . DIRECTORY_SEPARATOR . 'nocsrf.php';
 require_once APP . 'core' . DIRECTORY_SEPARATOR . 'utils.php';
 
 $user = null;
